@@ -1,0 +1,70 @@
+
+/*---------Right side------*/
+
+
+
+.tch_right_side .calendar-container {
+    flex: 2;
+    margin-top: 16px;
+}
+
+.tch_right_side .course_on_going {
+    flex: 3;
+    margin-top: 8px;
+}
+.course_on_going .today-time {
+    margin-bottom: 20px;
+}
+.course_on_going .today-time h4 {
+    float: left;
+}
+.course_on_going .today-time .today {
+    font-size: 14px;
+    color:rgb(114, 112, 112);
+    font-weight: 500;
+}
+.course_on_going .On_course{
+    background-color:#F9E8F2;
+    padding:16px 0;
+    border-radius: 5px;
+    margin-top: 24px;
+}
+
+.On_course .on-course-title{
+    font-size: 16px;
+    float: left;
+    padding-left: 8px;
+    padding-bottom: 12px;
+}
+.On_course .card-row{
+    margin-top: 15px;
+}
+.On_course .card-row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.On_course .ls-card {
+    display: flex;
+}
+
+.On_course .ls-icon{
+   margin-right: 5px;
+}
+.On_course .ls-name{
+    color:#000;
+    font-size: 12px;
+    font-weight: 500;
+}
+.On_course .btn_join_class {
+    margin-top: 32px;
+    color: rgb(255, 255, 255);
+    background-color: #FC6F78;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 80%;
+    padding: 8px 16px;
+}

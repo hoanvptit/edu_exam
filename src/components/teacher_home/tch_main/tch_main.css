@@ -1,0 +1,147 @@
+
+/*------Main side-------*/
+
+.tch_main .course_state {
+    flex: 1;
+    margin-left: 16px;
+    padding-top: 4px;
+}
+.course_state h3 {
+    float: left;
+}
+.course_state .num-course {
+    background: #ccc;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 5px;
+    float: left;
+}
+.tch_main .course_list {
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+}
+.tch_main .space {
+    flex: 1;
+}
+
+.course_list .course_line {
+    flex: 1;
+    margin: 8px;
+    display: flex;
+}
+
+.course_line .main_course{
+    flex: 1;
+    background-color:#F9E8F2;
+    margin:0 8px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.main_course .mc_header {
+    flex: 2;
+    border-bottom: 3px solid #E9E9EC;
+    padding: 8px;
+    display: flex;
+}
+.main_course .mc_content {
+    flex: 3;
+    padding-left: 8px;
+    padding-top: 8px;
+}
+.main_course .mc_header .ch-img{
+    flex: 2;
+    display: block;
+    max-width: 70px;
+    max-height: 70px;
+    padding: 4px 4px;
+    margin-top: 8px;
+}
+.main_course .mc_header .ch-text{
+    flex: 2;
+    float: left;
+    margin: auto;
+    padding-left: 8px;
+}
+.main_course .mc_header .ch-menu{
+    flex: 1;
+    /* padding-top: 12px; */
+}
+.mc_header .ch-menu .icon-menu {
+    float: right;
+    cursor: pointer;
+}
+.mc_header .ch-menu .sub-menu {
+    /* display: none; */
+    font-size: 13px;
+    list-style-type: none;
+    text-align: left;
+    background-color: #fff;
+    margin-top: 24px;
+    margin-right: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+}
+
+.mc_header .ch-menu .sub-menu-item {
+    padding: 4px 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.mc_header .ch-menu .sub-menu-item:hover {
+    background: rgb(230, 196, 196);
+}
+.mc_header .ch-menu .sub-delete {
+    border-bottom: 1px solid #ccc;
+   
+}
+.mc_header .ch-menu .sub-edit {
+   
+}
+.sub-edit .sub-icon {
+}
+.ch-text .mc-title {
+    float: left;
+    font-size: 16px;
+    padding-bottom: 4px;
+}
+.ch-text .mc-room-id {
+    font-size: 14px;
+    float: left;
+}
+
+.main_course .card-row{
+    display: block;
+    margin-top: 15px;
+}
+.main_course .card-row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main_course .ls-card {
+    display: flex;
+}
+
+.main_course .ls-icon{
+   margin-right: 5px;
+}
+.main_course .ls-name{
+    color:#000;
+    font-size: 14px;
+    font-weight: 500;
+}
+.main_course .btn-view {
+    display: block;
+    text-decoration: none;
+    color: rgb(18, 14, 226);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 18px;
+}

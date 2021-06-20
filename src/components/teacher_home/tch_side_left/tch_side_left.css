@@ -1,0 +1,63 @@
+/*------ Left side-------*/
+
+
+
+.tch_left_side .side_bar_first {
+    flex: 2;
+    border-bottom: 2px solid #E9E9EC;
+    padding-bottom: 6px;
+}
+.tch_left_side .ls-card {
+    height: 32px;
+    display: flex;
+    padding: 5px 0;
+    border-radius: 3px;
+    margin-right: 16px;
+    cursor: pointer;
+} 
+.tch_left_side .ls-card:hover {
+    background: rgb(231, 229, 229);
+}
+.tch_left_side .ls-icon {
+    /* min-width: 40px; */
+    width: 17px;
+    height: 17px;
+    color: #000;
+    margin-left: 8px;
+}
+
+.tch_left_side .ls-title {
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 15px;
+    opacity: 0.9;
+    color: rgb(0, 0, 0);
+
+}
+
+.side_bar_first .upcoming-course {
+    background: #F9E8F2;
+}
+
+.side_bar_first .done-course {
+
+}
+
+.side_bar_first .my-room {
+
+}
+.side_bar_first .active {
+    background: #F9E8F2;
+   
+}
+.tch_left_side .side_bar_second {
+    flex: 2;
+    padding-top: 8px;
+    border-bottom: 2px solid #E9E9EC ;
+}
+
+.tch_left_side .side_bar_third {
+    flex: 5;
+}
+

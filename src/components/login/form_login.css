@@ -1,0 +1,30 @@
+
+.login-form .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+
+}
+.login-form #checkid {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.login-form  .forgot-pw {
+  font-weight: 500;
+  font-size: 15px;
+  color: rgb(46, 11, 112);
+}
+
+.login-form .form-sign-google {
+  background-color: #2D3748;
+}
+
+.form-sign-google img {
+  vertical-align: middle;
+  height: 16px;
+  width: 16px;
+  margin-right: 7px;
+  padding-bottom: 2px;
+}
