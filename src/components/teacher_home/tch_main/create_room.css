@@ -21,14 +21,18 @@
     text-align: left;
     margin: 8px 16px;
 }
+
 .create-room-body .content {
     flex: 8;
     display: flex;
 }
-.create-room-body .space{
-    flex:1;
+
+.create-room-body .space {
+    flex: 1;
 }
+
 /* ---------------Button create and cancel create room--------------------*/
+
 .create-room-body .btn-group {
     flex: 1;
     text-align: right;
@@ -40,7 +44,7 @@
     padding: 8px 20px;
     font-size: 14px;
     font-weight: 600;
-    color:#fff;
+    color: #fff;
     background-color: #6064c4;
     border: none;
     outline: none;
@@ -48,17 +52,18 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 /* ------------------Left side-----------------*/
 
 .left-side .ls-card {
-    flex:1;
+    flex: 1;
     height: 100%;
     display: flex;
     padding: 8px 0;
     border-radius: 3px;
     margin-right: 16px;
     cursor: pointer;
-} 
+}
 
 .left-side .ls-icon {
     /* min-width: 40px; */
@@ -84,93 +89,137 @@
     display: flex;
     flex-direction: column;
 }
+
 .content .content-side {
-    flex:3;
+    flex: 3;
     display: flex;
     flex-direction: column;
+    margin-left: 100px;
 }
+
 .content-side .date-picker {
     flex: 1;
     display: block;
     width: 100%;
-
 }
+
 .date-picker .datepk-select {
-    width:50%;
-    height:70%;
+    width: 50%;
+    height: 70%;
     padding: 8px 16px;
     font-size: 15px;
     outline: none;
     border: 2px solid rgb(9, 36, 158);
     border-radius: 3px;
+    float: left;
 }
+
 .content-side .time-picker {
     flex: 1;
     display: block;
     width: 100%;
-
 }
+
 .time-picker .timepk-select {
-    width:50%;
-    height:70%;
+    width: 50%;
+    height: 70%;
     padding: 8px 16px;
     font-size: 15px;
     outline: none;
     border: 2px solid rgb(9, 36, 158);
     border-radius: 3px;
+    float: left;
 }
 
 .content-side .time-select {
     flex: 1;
     display: block;
     width: 100%;
-
 }
 
 .time-select .time-range {
     width: 50%;
     cursor: pointer;
-    margin:0 30px;
+    margin-top: 12px;
+    float: left;
 }
 
+.time-select .value-time-range {
+    font-size: 14px;
+    margin-left: -100px;
+}
+/*------------select question file------------*/
 .content-side .exam-question {
     flex: 1;
     text-align: center;
+    display: flex;
+}
+.exam-question .btn-sample-question {
+    height: 50%;
+    width: 20%;
+    margin-left: 18px;
+
+
+}
+.exam-question .exam-file {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 18px;
 
 }
 
-.btn-file {
-    padding: 5px 20px;
+.exam-file .btn-select-question {
+    flex: 1;
+}
+
+.exam-file .fileName {
+    flex: 1;
     font-size: 12px;
-    font-weight: 600;
-    color:#fff;
-    background-color: #FC6F78;
-    border: none;
-    outline: none;
-    margin-right: 32px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.exam-question .btn-select {    
-   
-}
 
-.exam-question .btn-sample {
-
-}
+/*------------select student file------------*/
 
 .content-side .list-student {
     flex: 1;
-
+    display: flex;
+    justify-content: start;
 }
 
-.list-student .btn-select-student {
+.list-student .student-file {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 18px;
 
 }
-
 .list-student .btn-sample-student {
+    height: 50%;
+    width: 20%;
+    margin-left: 18px;
+
+}
+.student-file .btn-select-student {
+    flex: 1;
+}
+
+.student-file .fileName {
+    flex: 1;
+    font-size: 12px;
 
 }
 
 
+
+.btn-file {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #FC6F78;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+}

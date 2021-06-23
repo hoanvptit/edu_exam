@@ -6,12 +6,12 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1440,
-    height: 900,
+    width: 1920,
+    height: 1080,
     // show:false,
     // frame: false,
     // fullscreenable: false,
-    // resizable: true,
+    resizable: false,
     // transparent: false,
 
   })

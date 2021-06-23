@@ -1,0 +1,45 @@
+.On_course {
+    display: flex;
+    flex-direction: column;
+}
+.On_course .on-course-title{
+    font-size: 16px;
+  
+}
+.On_course .card-row{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+/* .On_course .card-row::after{
+    content: "";
+    display: block;
+    clear: both;
+} */
+.On_course .ls-card {
+    flex: 1;
+    display: flex;
+    margin-left: 15px;
+}
+
+.On_course .ls-icon{
+   margin-right: 5px;
+}
+.On_course .ls-name{
+    color:#000;
+    font-size: 12px;
+    font-weight: 500;
+}
+.On_course .btn_join_class {
+    /* margin-top: 32px; */
+    color: rgb(255, 255, 255);
+    background-color: #FC6F78;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 80%;
+    padding: 8px 16px;
+    margin: 32px auto 0px;
+}

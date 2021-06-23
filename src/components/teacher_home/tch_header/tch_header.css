@@ -88,7 +88,7 @@
 }
 
 .header_user .notify_icon{
-
+    cursor: pointer;
 }
 
 .header_user .numOfNotify{

@@ -4,7 +4,7 @@ import RegisterForm from './components/register/registerForm';
 import TeacherHome from './components/teacher_home/teacher_home';
 import Calendar from './components/teacher_home/tch_side_right/calendar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
+import Notification from './components/notify/notification';
 function App() {
   return (
     // <Router>
@@ -17,8 +17,7 @@ function App() {
     //   </div>
     // </Router>
     <TeacherHome />
-    // <Calendar />
-  
+    // <Notification />
   );
 }
 

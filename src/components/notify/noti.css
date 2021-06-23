@@ -1,0 +1,79 @@
+.notify-container {
+    position: absolute;
+    z-index: 3;
+    width: 360px;
+    height: 500px;
+    display: flex;
+    margin: 8px;
+    padding: 8px;
+    margin-top: 50px;
+    /* margin-right: 20px; */
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.notify-container .noti-header {
+    flex: 1;
+    font-size: 20px;
+}
+.noti-header h3 {
+   display: inline-block;
+    padding: 8px;
+
+}
+.noti-header .numOfNoti{
+    font-size: 15px;
+    margin-top: -16px;
+}
+
+.noti-header .noti-menu{
+    float: right;
+    margin: 8px 8px;
+}
+
+.notify-container .noti-body {
+    flex: 9;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.noti-card {
+    flex: 1;
+    display: flex;
+    margin-bottom: 4px;
+    cursor: pointer;
+   align-items: center;
+}
+
+.noti-card:hover {
+    background-color: rgb(240, 215, 215);
+    border-radius: 5px;
+}
+.noti-card .noti-img {
+    height: 56px;
+    width: 56px;
+    float: left;
+    padding: 4px;
+    border-radius: 50%;;
+}
+.noti-card .noti-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+.noti-card .noti-text .noti-content {
+    font-size: 16px;
+    flex: 1;
+    font-weight: 600;
+}
+.noti-card .noti-text .noti-time{
+    font-size: 15px;
+    height: 16px;
+    width: 100%;
+    color:rgb(68, 131, 224);
+}
