@@ -1,10 +1,11 @@
 .tch_main {
-    display: flex;
+    display: block;
 }
 
-.tch_main .create-room-body {
-    flex: 3;
-    background-color: #fff;
+.tch_main .edit-room-body {
+    position:absolute;
+    z-index: 10;
+    background-color: rgb(230, 203, 203);
     margin-top: 16px;
     margin-right: 16px;
     border-radius: 10px;
@@ -12,45 +13,47 @@
     flex-direction: column;
 }
 
-.tch_main .space {
+.edit-room-body .title {
     flex: 1;
-}
-
-.create-room-body .title {
-    flex: 1;
-    text-align: left;
+    text-align: center;
     margin: 8px 16px;
 }
+.edit-room-body .course-header{
+    flex: 1;
+    display: flex;
+    margin-bottom: 8px;
+    padding-left: 24px;
+    flex-direction: column;
+}
+.course-header .course-title {
+    flex: 1;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding-bottom: 4px;
+    text-align: left;
+}
+.course-header .course-room-id{
+    flex: 1;
+    font-size: 16px;
+    text-align: left;
 
-.create-room-body .content {
+}
+.edit-room-body .content {
     flex: 8;
     display: flex;
 }
-
-.create-room-body .space {
+.content .left-side {
     flex: 1;
+    display: flex;
+    padding-left: 16px;
+    flex-direction: column;
 }
 
-/* ---------------Button create and cancel create room--------------------*/
-
-.create-room-body .btn-group {
-    flex: 1;
-    text-align: right;
-    margin: 16px 0;
-    margin-right: 16px;
-}
-
-.btn-group .btn {
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    background-color: #6064c4;
-    border: none;
-    outline: none;
-    margin-right: 32px;
-    border-radius: 5px;
-    cursor: pointer;
+.content .content-side {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
 }
 
 /* ------------------Left side-----------------*/
@@ -62,7 +65,6 @@
     padding: 8px 0;
     border-radius: 3px;
     margin-right: 16px;
-    cursor: pointer;
 }
 
 .left-side .ls-icon {
@@ -84,18 +86,7 @@
 
 /*-----------------content side--------------------*/
 
-.content .left-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
 
-.content .content-side {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    margin-left: 100px;
-}
 
 .content-side .date-picker {
     flex: 1;
@@ -145,74 +136,30 @@
 }
 
 .time-select .value-time-range {
+    width: 25%;
     font-size: 14px;
-    margin-left: -100px;
+    float: right;
+    margin-right: 8%;
 }
-/*------------select question file------------*/
-.content-side .exam-question {
+/*------------file-side------------*/
+.content-side .file-side {
     flex: 1;
-    text-align: center;
     display: flex;
-}
-.exam-question .btn-sample-question {
+    margin-right: 48px;
     height: 50%;
-    width: 20%;
-    margin-left: 18px;
-
-
-}
-.exam-question .exam-file {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 18px;
-
+    margin-top: 8px;
 }
 
-.exam-file .btn-select-question {
+.file-side .file-name {
+    flex: 3;
+    font-size: 15px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.file-side .btn-file {
     flex: 1;
-}
-
-.exam-file .fileName {
-    flex: 1;
-    font-size: 12px;
-}
-
-
-/*------------select student file------------*/
-
-.content-side .list-student {
-    flex: 1;
-    display: flex;
-    justify-content: start;
-}
-
-.list-student .student-file {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 18px;
-
-}
-.list-student .btn-sample-student {
-    height: 50%;
-    width: 20%;
-    margin-left: 18px;
-
-}
-.student-file .btn-select-student {
-    flex: 1;
-}
-
-.student-file .fileName {
-    flex: 1;
-    font-size: 12px;
-
-}
-
-
-
-.btn-file {
+    padding: 8px 0;
     font-size: 12px;
     font-weight: 600;
     color: #fff;
@@ -221,5 +168,26 @@
     outline: none;
     border-radius: 5px;
     cursor: pointer;
-    float: left;
+}
+
+/* ---------------Button create and cancel create room--------------------*/
+
+.edit-room-body .btn-group {
+    flex: 1;
+    text-align: right;
+    margin: 16px 0;
+    margin-right: 16px;
+}
+
+.btn-group .btn {
+    padding: 8px 31px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #6064c4;
+    border: none;
+    outline: none;
+    margin-right: 32px;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -16,3 +16,13 @@
   width: 50%;
 
 }
+.col-third {
+  width: 33.333333%;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}

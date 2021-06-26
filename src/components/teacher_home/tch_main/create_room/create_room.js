@@ -1,10 +1,10 @@
 import './create_room.css';
 
-import my_room from '../../../assets/my_room.png'
-import accomplished from '../../../assets/accomplished.png'
-import notify from '../../../assets/notify.png'
-import tutorial from '../../../assets/tutorial.png'
-import upcoming from '../../../assets/upcoming.png'
+import my_room from '../../../../assets/my_room.png'
+import accomplished from '../../../../assets/accomplished.png'
+import notify from '../../../../assets/notify.png'
+import tutorial from '../../../../assets/tutorial.png'
+import upcoming from '../../../../assets/upcoming.png'
 import { useState, useRef } from 'react';
 
 function Create_Room() {
@@ -14,7 +14,7 @@ function Create_Room() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
 
     let tmp_date = date.getDate() < 10 ? ("0" + date.getDate()).slice(-2) : date.getDate();
-    let tmp_month = date.getMonth() < 10 ? ("0" + (date.getMonth() + 1)).slice(-2) : date.getMonth+1;
+    let tmp_month = date.getMonth() < 10 ? ("0" + (date.getMonth() + 1)).slice(-2) : date.getMonth + 1;
     let tmp_year = date.getFullYear();
     let _time = `${tmp_year}-${tmp_month}-${tmp_date}`;
 
@@ -25,7 +25,7 @@ function Create_Room() {
         let value = e.target.value;
         console.log(e);
     }
-    const onChangeDuration = ( e) => {
+    const onChangeDuration = (e) => {
         let value = e.target.value;
         setDuration(value);
     }
@@ -34,7 +34,7 @@ function Create_Room() {
         let tmp = value.split('-');
         let newDate = new Date();
         newDate.setDate(tmp[2]);
-        newDate.setMonth(tmp[1]-1);
+        newDate.setMonth(tmp[1] - 1);
         newDate.setFullYear(tmp[0]);
         setDate(newDate);
     }
@@ -43,7 +43,7 @@ function Create_Room() {
         console.log(value);
         setTime(value);
     }
-        
+
 
     return (
         <div className="tch_main">
@@ -69,6 +69,11 @@ function Create_Room() {
 
                             <p className="ls-title">Đề thi</p>
                         </div>
+                        
+                        <div className="ls-card list-student">
+                            <img src={my_room} className="ls-icon" />
+                            <p className="ls-title">Result</p>
+                        </div>
                         <div className="ls-card list-student">
                             <img src={my_room} className="ls-icon" />
                             <p className="ls-title">List students</p>
@@ -76,42 +81,43 @@ function Create_Room() {
                     </div>
                     <div className="content-side">
                         <div className="date-picker">
-                            <input type="date" className="datepk-select" value={_time} onChange={(e) => onchangeDate(e)}/>
+                            <input type="date" className="datepk-select" value={_time} onChange={(e) => onchangeDate(e)} />
                         </div>
                         <div className="time-picker">
-                            <input className="timepk-select" type="time" id="appt" name="appt" value={time} onChange={(e) => onChangeTime(e)}/>
+                            <input className="timepk-select" type="time" id="appt" name="appt" value={time} onChange={(e) => onChangeTime(e)} />
                         </div>
                         <div className="time-select">
-                            <input className="time-range" type="range" min="0" max="120" step="1" value={duration} onChange={(e) => onChangeDuration(e)}/>
+                            <input className="time-range" type="range" min="0" max="120" step="1" value={duration} onChange={(e) => onChangeDuration(e)} />
                             <span className="value-time-range">{duration} minutes</span>
                         </div>
 
-                        <div className="exam-question">
-                            <div className="exam-file">
-                                <button className="btn-file btn-select-question" onClick={handleClick}>Choose a file</button>
-                                <input type='file' id="getFile" style={{ display: 'none' }} ref={inputFileRef} />
-                                <span className="fileName">File: No file</span>
-                            </div>
-
-                            <button className="btn-file btn-sample-question">Sample file</button>
+                        <div className="file-side exam-question">
+                            <button className="btn-select-file btn-select-question" onClick={handleClick}>Choose a file</button>
+                            <input type='file' id="getFile" style={{ display: 'none' }} ref={inputFileRef} />
+                            <div className="btn-sample-file btn-sample-question"></div>
+                            <div className="fileName"> <span >File: No file</span> </div>
                         </div>
-                        <div className="list-student">
-                            <div className="student-file">
-                                <button className="btn-file btn-select-student" onClick={handleClick}>Choose a file</button>
-                                <input type='file' id="getFile" style={{ display: 'none' }} ref={inputFileRef} onClick={(e) => handleFileclick(e)} />
-                                <span className="fileName">File: No file</span>
-                            </div>
-
-                            <button className="btn-file btn-sample-student">Sample file</button>
+                        <div className="file-side list-answer">
+                            <button className="btn-select-file btn-select-answer" onClick={handleClick}>Choose a file</button>
+                            <input type='file' id="getFile" style={{ display: 'none' }} ref={inputFileRef} onClick={(e) => handleFileclick(e)} />
+                            <button className="btn-sample-file btn-sample-answer">Sample file</button>
+                            <div className="fileName"> <span >File: No file</span> </div>
+                           
                         </div>
+                        <div className="file-side list-student">
+                            <button className="btn-select-file btn-select-student" onClick={handleClick}>Choose a file</button>
+                            <input type='file' id="getFile" style={{ display: 'none' }} ref={inputFileRef} onClick={(e) => handleFileclick(e)} />
+                            <button className="btn-sample-file btn-sample-student">Sample file</button>
+                            <div className="fileName"> <span >File: No file</span> </div>
+                        </div>
+                       
                     </div>
                 </div>
-                <div className="space"></div>
                 <div className="btn-group">
                     <button className="btn-create btn">Create</button>
                     <button className="btn-cancel btn">Cancel</button>
                 </div>
-                {/* <input type="file" onClick={}/> */}
+                {/* <input type="file" onClick={(e)=> handleFileclick(e)}/> */}
             </div>
             <div className="space"></div>
         </div>

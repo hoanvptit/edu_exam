@@ -4,9 +4,10 @@ import './noti.css'
 import { Element } from 'react-scroll';
 import './scroll.css';
 
-function Notification() {
+function Notification(props) {
+    
     return (
-        <div className="notify-container">
+        <div ref={props.reff} className="notify-container">
             <div className="noti-header">
                 <h3>Thông báo</h3>
                 <BsThreeDotsVertical className="noti-menu" />

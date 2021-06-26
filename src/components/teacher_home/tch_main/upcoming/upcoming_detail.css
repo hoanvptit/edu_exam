@@ -1,0 +1,90 @@
+/* .tch_main {
+    display: flex;
+} */
+.upcoming_detail_main {
+    display: flex;
+
+}
+.upcoming_detail_main .course_state {
+    flex: 0.5;
+    margin-left: 16px;
+    padding-top: 4px;
+}
+.course_state h3 {
+    float: left;
+}
+.course_state .num-course {
+    background: #ccc;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 5px;
+    float: left;
+}
+/*-------------------------*/
+
+.upcoming_detail_main .course_detail{
+    flex: 2;
+    margin:16px 8px;
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+.course_detail .course-header{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+.course-header .course-title {
+    flex: 1;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding-bottom: 4px;
+    text-align: left;
+}
+.course-header .course-room-id{
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+
+}
+
+.course_detail .card-row {
+    flex: 1;
+    display: flex;
+    padding-top: 8px;
+}
+.course_detail .card-row .flex_1{
+    flex:1;
+}
+ 
+.course_detail .card-row .flex_2 {
+    flex:2;
+}
+
+.course_detail .card-row .ls-card {
+    display: flex;
+}
+.card-row .ls-card .ls-name {
+    font-size: 14px;
+}
+.card-row .ls-card .ls-icon {
+    margin-right: 5px;
+    width: 17px;
+    height: 17px;
+    color: #000;
+}
+
+/*----------------------------*/
+.upcoming_detail_main .list_student{
+    flex: 7.5;
+    margin: 0 8px;
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}

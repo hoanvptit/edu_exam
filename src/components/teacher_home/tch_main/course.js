@@ -5,14 +5,34 @@ import calendar from '../../../assets/calendar.png';
 import course_img from '../../../assets/course_img.png'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { MdEdit, MdDelete } from 'react-icons/md'
-import {useState} from 'react';
+import { useEffect, useState, useRef } from 'react';
+import {Link} from 'react-router-dom';
+import EditRoom from './edit_room/edit_room';
 function Course() {
     const [menuState, setMenuState] = useState(false);
+    const ref = useRef(null);
+    const [isEditRoom, setIsEditRoom] = useState(false);
+    useEffect(() => {
+        function handleClickOutside(event) {
+            console.log(ref.current);
+            if (ref.current && !ref.current.contains(event.target)) {
+                setMenuState((prev) => {
+                    return !prev;
+                });
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+
     const SubMenu = () => {
         return (
-            <ul className="sub-menu">
+            <ul ref={ref} className="sub-menu">
                 <li className="sub-menu-item sub-delete">Delete <MdDelete className="sub-icon" /> </li>
-                <li className="sub-menu-item sub-edit">Edit <MdEdit className="sub-icon" /></li>
+                <li className="sub-menu-item sub-edit" onClick={(e) => handleEditRoom(e)}>Edit <MdEdit className="sub-icon" /></li>
+                {/* {isEditRoom && <EditRoom />} */}
             </ul>
         )
     }
@@ -20,6 +40,11 @@ function Course() {
         setMenuState((prev) => {
             return !prev;
         });
+    }
+    const handleEditRoom = () => {
+        setIsEditRoom((prev) => {
+            return !prev;
+        })
     }
     return (
         <div className="main_course">
@@ -30,7 +55,7 @@ function Course() {
                     <p className="mc-room-id">RoomID: ML906</p>
                 </div>
                 <div className="ch-menu">
-                    <BsThreeDotsVertical 
+                    <BsThreeDotsVertical
                         className="icon-menu"
                         onClick={(e) => handleClickMenu(e)}
                     />
@@ -58,7 +83,9 @@ function Course() {
                         <p className="ls-name">16-02-2021</p>
                     </div>
                 </div>
-                <a className="btn-view" href="#">View</a>
+                <Link to='/upcoming_view'>
+                    <a className="btn-view" href="#">View</a>
+                </Link>
             </div>
 
         </div>

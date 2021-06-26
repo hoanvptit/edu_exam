@@ -1,6 +1,6 @@
-import Course from './course';
-import './tch_main.css';
-function TCH_Main() {
+import Course from '../course';
+import '../tch_main.css';
+function TCH_Upcoming() {
     return (
         <div className="tch_main">
             <div className="course_state">
@@ -21,4 +21,4 @@ function TCH_Main() {
         </div>
     )
 }
-export default TCH_Main
+export default TCH_Upcoming

@@ -1,0 +1,209 @@
+.tch_main {
+    display: flex;
+}
+
+.tch_main .create-room-body {
+    flex: 3;
+    background-color: rgb(223, 190, 190);
+    margin-top: 16px;
+    margin-right: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tch_main .space {
+    flex: 1;
+}
+
+.create-room-body .title {
+    flex: 1;
+    text-align: left;
+    margin: 8px 16px;
+}
+
+.create-room-body .content {
+    flex: 9;
+    display: flex;
+}
+
+/* ------------------Left side-----------------*/
+
+.left-side .ls-card {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    padding: 8px 0;
+    border-radius: 3px;
+    margin-right: 16px;
+}
+
+.left-side .ls-icon {
+    /* min-width: 40px; */
+    text-align: center;
+    width: 18px;
+    height: 18px;
+    color: #000;
+    margin-left: 8px;
+}
+
+.left-side .ls-title {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 15px;
+}
+
+/*-----------------content side--------------------*/
+
+.content .left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .content-side {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.content-side .date-picker {
+    flex: 1;
+    display: block;
+    width: 100%;
+}
+
+.date-picker .datepk-select {
+    width: 50%;
+    height: 70%;
+    padding: 8px 16px;
+    font-size: 15px;
+    outline: none;
+    border: 2px solid rgb(9, 36, 158);
+    border-radius: 3px;
+    float: left;
+    cursor: pointer;
+
+}
+
+.content-side .time-picker {
+    flex: 1;
+    display: block;
+    width: 100%;
+}
+
+.time-picker .timepk-select {
+    width: 50%;
+    height: 70%;
+    padding: 8px 16px;
+    font-size: 15px;
+    outline: none;
+    border: 2px solid rgb(9, 36, 158);
+    border-radius: 3px;
+    float: left;
+    cursor: pointer;
+
+}
+
+.content-side .time-select {
+    flex: 1;
+    display: block;
+    width: 100%;
+}
+
+.time-select .time-range {
+    width: 50%;
+    cursor: pointer;
+    margin-top: 12px;
+    float: left;
+}
+
+.time-select .value-time-range {
+    width: 25%;
+    font-size: 14px;
+    float: right;
+    margin-right: 8%;
+}
+
+/*------------file-side------------*/
+
+.content-side .file-side {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-side .btn-select-file {
+    width: 25%;
+    height: 60%;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #FC6F78;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-side .fileName {
+    width: 25%;
+    height: 60%;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 4px;
+    /* border: 3px solid green; */
+}
+
+.file-side .btn-sample-file {
+    width: 25%;
+    height: 60%;
+    
+}
+.file-side .btn-sample-student {
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #FC6F78;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.file-side .btn-sample-answer {
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #FC6F78;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* ---------------Button create and cancel create room--------------------*/
+
+.create-room-body .btn-group {
+    flex: 1;
+    text-align: right;
+    margin: 16px 0;
+    margin-right: 16px;
+}
+
+.btn-group .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #6064c4;
+    border: none;
+    outline: none;
+    margin-right: 32px;
+    border-radius: 5px;
+    cursor: pointer;
+}
