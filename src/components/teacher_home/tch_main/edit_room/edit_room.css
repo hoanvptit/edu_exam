@@ -1,10 +1,9 @@
-.tch_main {
+.edit-room-main {
     display: block;
 }
 
-.tch_main .edit-room-body {
-    position:absolute;
-    z-index: 10;
+.edit-room-main .edit-room-body {
+   
     background-color: rgb(230, 203, 203);
     margin-top: 16px;
     margin-right: 16px;

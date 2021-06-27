@@ -17,13 +17,13 @@ function TeacherHome() {
                 <div class="tch_body">
                     <TCH_LeftSide />
                     <Switch >
-                        <Route path='/' exact component={TCH_Upcoming} />
+                        <Route path='/home' exact component={TCH_Upcoming} />
                         <Route path='/upcoming' component={TCH_Upcoming} />
-                        {/* <Route path='/upcoming' component={EditRoom} /> */}
+                        <Route path='/edit_room' component={EditRoom} />
                         <Route path='/create_room' component={Create_Room} />
                         <Route path='/accomplished' component={Accomplished} />
                         <Route path='/my_room' component={My_Room} />
-                        <Route path='/upcoming_view' component={UpcomingDetail}/>
+                        <Route path='/upcoming_view/:id' component={UpcomingDetail}/>
                     </Switch>
                     <TCH_RightSide />
                 </div>

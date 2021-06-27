@@ -7,17 +7,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Notification from './components/notify/notification';
 function App() {
   return (
-    // <Router>
-    //   <div className="App">
-    //     <Switch>
-    //       <Route path='/' exact component={TeacherHome}/>
-    //       <Route path='/login' component={LoginForm}/>
-    //       <Route path='/register' component={RegisterForm}/>
-    //     </Switch>
-    //   </div>
-    // </Router>
-    <TeacherHome />
-    // <Notification />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path='/home' exact component={TeacherHome}/>
+          <Route exact path='/' component={LoginForm}/>
+          <Route path='/register' component={RegisterForm}/>
+        </Switch>
+      </div>
+    </Router>
+    // <TeacherHome />
   );
 }
 

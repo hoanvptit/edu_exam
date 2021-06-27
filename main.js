@@ -10,8 +10,8 @@ function createWindow () {
     height: 1080,
     // show:false,
     // frame: false,
-    // fullscreenable: false,
-    resizable: false,
+    fullscreenable: true,
+    // resizable: true,
     // transparent: false,
 
   })

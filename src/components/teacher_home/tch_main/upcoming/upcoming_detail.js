@@ -1,14 +1,40 @@
 import './upcoming_detail.css';
-import './table.css';
+import './table_student.css';
+import './table_teacher.css';
+
 import clock from '../../../../assets/clock.png';
 import friends from '../../../../assets/friends.png';
 import teacher from '../../../../assets/teacher.png';
 import calendar from '../../../../assets/calendar.png';
 import { Table } from 'react-bootstrap';
-function UpcomingDetail() {
+function UpcomingDetail({match}) {
+
+    console.log("match: ", match.params.id);
     let roomID = "ML906";
     const titles = ["STT", "Họ tên", 'Lớp', "MSV", "Chọn"]
-    const ObjectRow = (index) => {
+    const title2 = ["STT", "Họ tên", 'Khoa', "Chọn"]
+    const TeacherObject = (index) => {
+        let tmp = index % 2;
+        return (
+            tmp === 1 ? (
+                <tr className="tb-col" style={{ backgroundColor: "#F9E8F2" }}>
+                    <td className="text-center" style={{ width: '1%' }}>{index}</td>
+                    <td className="text-left" style={{ width: '4%' }}>Nguyễn Văn Nam</td>
+                    <td className="text-left" style={{ width: '2%' }}>CNTT</td>
+                    <td className="text-center" style={{ width: '1%' }}><a href="#">Xoá</a></td>
+                </tr>
+            ) : (
+                <tr className="tb-col">
+                    <td className="text-center" style={{ width: '1%' }}>{index}</td>
+                    <td className="text-left" style={{ width: '4%' }}>Nguyễn Văn Nam</td>
+                    <td className="text-left" style={{ width: '2%' }}>CNTT</td>
+                    <td className="text-center" style={{ width: '1%' }}><a href="#">Xoá</a></td>
+                </tr>
+            )
+
+        )
+    }
+    const StudentObject = (index) => {
         let tmp = index % 2;
         return (
             tmp === 1 ? (
@@ -31,11 +57,14 @@ function UpcomingDetail() {
 
         )
     }
-    var rows = [];
+    var student_rows = [];
     for (let i = 1; i <= 15; i++) {
-        rows.push(ObjectRow(i));
+        student_rows.push(StudentObject(i));
     }
-
+    var teacher_rows = [];
+    for (let i = 1; i <= 3; i++) {
+        teacher_rows.push(TeacherObject(i));
+    }
     return (
         <div className="tch_main upcoming_detail_main">
             <div className="course_state">
@@ -78,6 +107,33 @@ function UpcomingDetail() {
                     </div>
                 </div>
             </div>
+            {/* ------------------- List teacher -------------------- */}
+            <div className="list_teacher" >
+                <div className="list-title">
+                    <h3> Danh sách giảng viên</h3>
+                    <button className="btn-export">Add</button>
+                </div>
+                <div className="table-teacher">
+                    <table >
+                        <thead>
+                            <tr>
+                                {title2.map(title => (
+                                    <th>{title}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {teacher_rows.map(row => {
+                                return row;
+                            })}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+            {/* -------------- List student ------------------------- */}
             <div className="list_student" >
                 <div className="list-title">
                     <h3> Danh sách sinh viên</h3>
@@ -93,7 +149,7 @@ function UpcomingDetail() {
                             </tr>
                         </thead>
                         <tbody>
-                            {rows.map(row => {
+                            {student_rows.map(row => {
                                 return row;
                             })}
                         </tbody>
@@ -102,6 +158,7 @@ function UpcomingDetail() {
                 </div>
 
             </div>
+            
         </div>
     )
 }

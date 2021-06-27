@@ -46,7 +46,7 @@ function EditRoom() {
 
 
     return (
-        <div className="tch_main">
+        <div className="tch_main edit-room-main">
             <div className="edit-room-body">
                 <h3 className="title">Edit Room</h3>
                 <div className="course-header">
