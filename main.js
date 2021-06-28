@@ -3,6 +3,7 @@
 const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 
+
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -10,8 +11,8 @@ function createWindow () {
     height: 1080,
     // show:false,
     // frame: false,
-    fullscreenable: true,
-    // resizable: true,
+    // fullscreenable: true,
+    resizable: false,
     // transparent: false,
 
   })
@@ -20,7 +21,7 @@ function createWindow () {
   mainWindow.loadURL('http://localhost:3000');
   Menu.setApplicationMenu(null);
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished

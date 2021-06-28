@@ -4,13 +4,30 @@ import './table_teacher.css';
 
 import clock from '../../../../assets/clock.png';
 import friends from '../../../../assets/friends.png';
-import teacher from '../../../../assets/teacher.png';
+import teacherImg from '../../../../assets/teacher.png';
 import calendar from '../../../../assets/calendar.png';
 import { Table } from 'react-bootstrap';
+import {useState, useEffect} from 'react'
+import axios from 'axios';
 function UpcomingDetail({match}) {
+    const userId = match.params.id;
+    const url = `http://203.162.88.102:9999/v1/rooms/${userId}`;
+    const [teacher, setTeacher] = useState("");
+    const [room, setRoom] = useState({});
+    useEffect(() => {
+        fetchRoom();
+    }, [])
 
-    console.log("match: ", match.params.id);
-    let roomID = "ML906";
+    const fetchRoom = async () => {
+        const data = await axios(url);
+        setRoom(data.data);
+        setTeacher(data.data.ownerId.name);
+    }
+    const start = new Date(room.start);
+    const end = new Date(room.end);
+    const startTime =  `${start.getHours()}:${start.getMinutes()}`;
+    const endTime =  `${end.getHours()}:${end.getMinutes()}`;
+    const date = `${start.getDate()}-${start.getMonth()}-${start.getFullYear()}`;
     const titles = ["STT", "Họ tên", 'Lớp', "MSV", "Chọn"]
     const title2 = ["STT", "Họ tên", 'Khoa', "Chọn"]
     const TeacherObject = (index) => {
@@ -73,18 +90,18 @@ function UpcomingDetail({match}) {
             </div>
             <div className="course_detail">
                 <div className="course-header">
-                    <h3 className="course-title">Machine Learing</h3>
-                    <span className="course-room-id">RoomID: {roomID}</span>
+                    <h3 className="course-title">{room.name}</h3>
+                    <span className="course-room-id">RoomID: {room.id}</span>
                 </div>
 
                 <div className="card-row">
                     <div className="ls-card flex_1 course-teacher">
-                        <img src={teacher} className="ls-icon" />
-                        <p className="ls-name"> N.T.T.Tâm</p>
+                        <img src={teacherImg} className="ls-icon" />
+                        <p className="ls-name">{teacher}</p>
                     </div>
                     <div className="ls-card flex_1 course-time">
                         <img src={clock} className="ls-icon" />
-                        <p className="ls-name">10:30 - 11:30 AM</p>
+                        <p className="ls-name">{startTime} - {endTime}</p>
                     </div>
                     <div className="ls-card flex_2 course-question">
                         <p className="ls-name" > Đề bài: </p>
@@ -99,7 +116,7 @@ function UpcomingDetail({match}) {
                     </div>
                     <div className="ls-card flex_1 course-date">
                         <img src={calendar} className="ls-icon" />
-                        <p className="ls-name">16-02-2021</p>
+                        <p className="ls-name">{date}</p>
                     </div>
                     <div className="ls-card flex_2 course-answer">
                         <p className="ls-name" > Đáp án: </p>

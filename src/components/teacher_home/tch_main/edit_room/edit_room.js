@@ -7,7 +7,8 @@ import tutorial from '../../../../assets/tutorial.png'
 import upcoming from '../../../../assets/upcoming.png'
 import { useState, useRef } from 'react';
 
-function EditRoom() {
+function EditRoom({match}) {
+    const userId = match.params.userId;
     const inputFileRef = useRef(null);
     const [duration, setDuration] = useState(60);
     const [date, setDate] = useState(new Date());

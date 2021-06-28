@@ -1,0 +1,155 @@
+/* body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: auto;
+    height: 900px;
+    width: 1440px;
+} */
+
+.test-content {
+    display: flex;
+}
+.test-content .question{
+    flex: 9;
+}
+.test-content .answer_sheet {
+    flex: 3;
+    font-size: 15px;
+}
+.info_user{
+
+    width: 100%;
+    height: 60px;
+}
+.info_user .icon {
+    width: 15px;
+    height: 15px;
+    margin-top: 25px;
+    margin-right: 10px;
+}
+.info_user .icon_big {
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.info_user div{
+    float:right;
+    
+}
+.info_user i{
+    padding-top: 17px;
+    font-size: 26px;
+    color: #000;
+    padding-bottom: 17px;
+    margin-right:20px;
+}
+.info_user h5{
+    
+    font-size: 16px;
+    height: auto;
+    padding-top: 21px;
+    margin-right:20px;
+    
+}
+.info_user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 5px;
+    float:right;
+    margin-right: 40px;
+}
+.info_test{
+    width:  100%;
+    height: 60px;
+    display: flex;
+}
+.info_test div{
+    display: flex;
+}
+.info_test h5{
+    font-size: 18px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    margin-left:30px;
+}
+.info_test h6{
+
+    font-size: 17px;
+    padding-top: 20px;
+    margin-left: 40px;
+    color: red;
+    margin-right: 30px;
+}
+.info_test ul
+{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+.info_test ul li{
+    list-style: none;
+    display: flex;
+    font-size: 14px;
+    margin-right: 20px;
+   
+}
+.info_test .icon
+{
+    
+  margin-top: 21px;
+  margin-right: 15px;
+}
+.info_test ul li div
+{
+    text-align: center;
+    height: 20px;
+    padding-top:20px;
+    
+}
+.submit
+{   outline: none;
+    border: none;
+    background: rgb(95, 230, 95);
+    border-radius: 5px;
+    width:120px;
+    height: 30px;
+    margin-top: 15px;
+    padding: 0px;
+    margin-left: 70px;
+    cursor: pointer;
+}
+
+.question 
+{
+    height: 960px;
+    text-align: center;
+}
+.answer_sheet
+{
+    max-height: 960px;
+    overflow: scroll;
+}
+.answer_sheet ul 
+{
+    padding: 0px;
+    margin: 0px;
+}
+.answer_sheet ul li
+{
+    list-style: none;
+    margin-left: 9%;
+}
+.answer_sheet ul li span{
+    display: block;
+    margin-bottom: 10px;
+}
+.answer_sheet ul li label{
+
+    margin-right: 13%;
+    margin-left:10px;
+}
+.last_radio
+{
+    margin-right:0%;
+}

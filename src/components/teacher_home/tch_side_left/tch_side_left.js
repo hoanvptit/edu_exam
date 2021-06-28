@@ -11,24 +11,25 @@ import tutorial from '../../../assets/tutorial.png'
 import upcoming from '../../../assets/upcoming.png'
 import { Link } from 'react-router-dom';
 import './tch_side_left.css';
-function TCH_LeftSide() {
+function TCH_LeftSide(props) {
+    let userId = props.userId;
     return (
         <div className="tch_left_side">
             <div className="side_bar_first">
-                <Link to='/create_room'>
+                <Link to={`/create_room/${userId}`}>
                     <div className="ls-card create-room">
                         <AiOutlineAppstoreAdd className="ls-icon" />
                         <p className="ls-title">Create room</p>
                     </div>
                 </Link>
-                <Link to='/upcoming'>
+                <Link to={`/upcoming/${userId}`}>
                     <div className="ls-card upcoming-course">
                         {/* <BsFileEarmarkText className="ls-icon" /> */}
                         <img src={upcoming} className="ls-icon" />
                         <p className="ls-title">Upcoming</p>
                     </div>
                 </Link>
-                <Link to='/accomplished'>
+                <Link to={`/accomplished/${userId}`}>
                     <div className="ls-card done-course" >
                         {/* <AiOutlineFileDone className="ls-icon" /> */}
 
@@ -37,7 +38,7 @@ function TCH_LeftSide() {
                         <p className="ls-title">Accomplished</p>
                     </div>
                 </Link>
-                <Link to="/my_room">
+                <Link to={`/my_room/${userId}`}>
                     <div className="ls-card my-room">
                         {/* <SiGoogleclassroom className="ls-icon"/> */}
                         <img src={my_room} className="ls-icon" />

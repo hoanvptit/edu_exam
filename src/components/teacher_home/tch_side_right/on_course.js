@@ -6,7 +6,19 @@ import friends from '../../../assets/friends.png';
 import teacher from '../../../assets/teacher.png';
 import calendar from '../../../assets/calendar.png';
 import './oncourse.css';
-function On_Course() {
+import { Link } from 'react-router-dom';
+import auth from '../../utility/auth';
+
+function On_Course(props) {
+    console.log("props3:", props)
+    const handleClick = (e) => {
+        handleAuth();
+    }
+    const handleAuth = () => {
+        // auth.test(() => {
+        //     props.history.push('/testing');
+        // })
+    }
     return (
         <div className="On_course">
             <h4 className="on-course-title">Machine Learning</h4>
@@ -30,7 +42,9 @@ function On_Course() {
                     <p className="ls-name">16-02-2021</p>
                 </div>
             </div>
-            <button className="btn_join_class">Join</button>
+            <Link to="/testing">
+                <button className="btn_join_class" onClick={(e) => { handleClick(e) }}>Join</button>
+            </Link>
         </div>
     )
 }
