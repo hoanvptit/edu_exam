@@ -6,61 +6,66 @@ import notify from '../../../../assets/notify.png'
 import tutorial from '../../../../assets/tutorial.png'
 import upcoming from '../../../../assets/upcoming.png'
 import React, { useState, useRef } from 'react';
+import axios from 'axios';
 
 function Create_Room() {
-    // console.log("create room match: ", match.params.userId);
-    // const inputFileRef = useRef(null);
-    const inputFileRef1 = React.createRef();
-    const inputFileRef2 = React.createRef();
-    const inputFileRef3 = React.createRef();
-
+    const url = "http://203.162.88.102:9999/v1/rooms/";
+    const [isValid, setIsValid] = useState(false);
+    const inputFileExamRef = React.createRef();
+    const inputFileAnswerRef = React.createRef();
+    const inputFileStudentRef = React.createRef();
+    const [nameSubject, setNameSubject] = useState('');
     const [duration, setDuration] = useState(60);
     const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState(new Date().toLocaleTimeString());
-    const [file1, setFile1] = useState({ name: "no file" });
-    const [file2, setFile2] = useState({ name: "no file" });
-    const [file3, setFile3] = useState({ name: "no file" });
+    const [startTime, setStartTime] = useState(new Date().toLocaleTimeString());
+    const [endTime, setEndTime] = useState(new Date().toLocaleTimeString());
+    const [fileExam, setFileExam] = useState({ name: "no file" });
+    const [fileAnswer, setFileAnswer] = useState({ name: "no file" });
+    const [fileStudent, setFileStudent] = useState({ name: "no file" });
 
     let tmp_date = date.getDate() < 10 ? ("0" + date.getDate()).slice(-2) : date.getDate();
     let tmp_month = date.getMonth() < 10 ? ("0" + (date.getMonth() + 1)).slice(-2) : date.getMonth + 1;
     let tmp_year = date.getFullYear();
     let _time = `${tmp_year}-${tmp_month}-${tmp_date}`;
 
-    const handleClick1 = (e) => {
-        inputFileRef1.current.click();
+    const handleChangeName = (e) => {
+        let name = e.target.value;
+        if (name.length !== 0 && !name) {
+            setIsValid(true);
+        }
+        setNameSubject(name);
     }
-    const handleClick2 = (e) => {
-        inputFileRef2.current.click();
+    const handleClickExam = (e) => {
+        inputFileExamRef.current.click();
     }
-    const handleClick3 = (e) => {
-        inputFileRef3.current.click();
+    const handleClickAnswer = (e) => {
+        inputFileAnswerRef.current.click();
     }
-    const onChangeFile1 = (e) => {
-        let name = e.target.name;
-        console.log("input name: ", name);
-        let files = inputFileRef1.current.files[0];
-        console.log(files);
-        setFile1(files);
+    const handleClickStudent = (e) => {
+        inputFileStudentRef.current.click();
+    }
+    const onChangeFileExam = (e) => {
+        let files = inputFileExamRef.current.files[0];
+        if (files) {
+            setIsValid(true);
+        }
+        setFileExam(files);
 
-        // let reader = new FileReader();
-        // reader.readAsDataURL(files[0]);
-        //     reader.onload=(e)=>{
-        //         console.log("file: ", e);
-        //     }
     }
-    const onChangeFile2 = (e) => {
-        let name = e.target.name;
-        console.log("input name: ", name);
-        let files = inputFileRef2.current.files[0];
-        console.log(files);
-        setFile2(files);
+    const onChangeFileAnswer = (e) => {
+        let files = inputFileAnswerRef.current.files[0];
+        if (files) {
+            setIsValid(true);
+        } 
+        setFileAnswer(files);
+
     }
-    const onChangeFile3 = (e) => {
-        let name = e.target.name;
-        console.log("input name: ", name);
-        let files = inputFileRef3.current.files[0];
-        console.log(files);
-        setFile3(files);
+    const onChangeFileStudent = (e) => {
+        let files = inputFileStudentRef.current.files[0];
+        if (files) {
+            setIsValid(true);
+        } 
+        setFileStudent(files);
     }
     const onChangeDuration = (e) => {
         let value = e.target.value;
@@ -68,6 +73,7 @@ function Create_Room() {
     }
     const onchangeDate = (e) => {
         let value = e.target.value;
+        console.log("vale date: ", value)
         let tmp = value.split('-');
         let newDate = new Date();
         newDate.setDate(tmp[2]);
@@ -75,13 +81,61 @@ function Create_Room() {
         newDate.setFullYear(tmp[0]);
         setDate(newDate);
     }
-    const onChangeTime = (e) => {
+    const onChangeStartTime = (e) => {
         let value = e.target.value;
-        console.log(value);
-        setTime(value);
+        setStartTime(value);
     }
+    const onChangeEndTime = (e) => {
+        let value = e.target.value;
+        setEndTime(value);
+    }
+    const handlePost = (e) => {
+        if (isValid) {
+            let tmp_startTime = new Date(date);
+            tmp_startTime.setHours(startTime.split(':')[0]);
+            tmp_startTime.setMinutes(startTime.split(':')[1]);
+            tmp_startTime.setSeconds(startTime.split(':')[2]);
 
+            let tmp_endTime = new Date(date);
+            tmp_endTime.setHours(endTime.split(':')[0]);
+            tmp_endTime.setMinutes(endTime.split(':')[1]);
+            tmp_endTime.setSeconds(endTime.split(':')[2]);
 
+            const fd = new FormData();
+            fd.append("ownerId", "60d9d6b63277918ab884e20c");
+            fd.append("name", nameSubject);
+            fd.append("status", "active");
+            fd.append("start", tmp_startTime.toISOString());
+            fd.append("end", tmp_endTime.toISOString());
+            fd.append("exam", fileExam);
+            fd.append("answer", fileAnswer);
+            fd.append("student", fileStudent);
+
+            fetch(url, {
+                method: 'POST',
+                body: fd
+            })
+                .then(response => response.json()).then(res => {
+                    console.log("res:", res);
+                    alert("successfully!")
+                })
+                .catch(err => {
+                    console.log("err: ", err);
+                })
+        }else {
+            alert("vui lòng nhập đầy đủ thông tin")
+        }
+       
+    }
+    const handleCancel = (e) => {
+        setNameSubject("");
+        setFileAnswer({name:"no file"})
+        setFileExam({name:"no file"})
+        setFileStudent({name:"no file"})
+        setDate(new Date());
+        setStartTime(new Date().toLocaleTimeString());
+        setEndTime(new Date().toLocaleTimeString());
+    }
     return (
         <div className="tch_main">
             <div className="create-room-body">
@@ -103,7 +157,7 @@ function Create_Room() {
                         <div className="ls-card time-select">
 
                             <img src={accomplished} className="ls-icon" />
-                            <p className="ls-title">Time</p>
+                            <p className="ls-title">End Time</p>
                         </div>
                         <div className="ls-card exam-question">
                             <img src={my_room} className="ls-icon" />
@@ -122,44 +176,61 @@ function Create_Room() {
                     </div>
                     <div className="content-side">
                         <div className="subject_name">
-                            <input className="input_subject" type="text" placeholder="Tên môn học" />
+                            <input
+                                className="input_subject"
+                                type="text" name="name"
+                                placeholder="Tên môn học"
+                                value={nameSubject}
+                                onChange={(e) => handleChangeName(e)}
+                            />
                         </div>
                         <div className="date-picker">
                             <input type="date" className="datepk-select" value={_time} onChange={(e) => onchangeDate(e)} />
                         </div>
                         <div className="time-picker">
-                            <input className="timepk-select" type="time" id="appt" name="appt" value={time} onChange={(e) => onChangeTime(e)} />
+                            <input
+                                className="timepk-select"
+                                type="time" id="appt"
+                                name="appt" value={startTime}
+                                onChange={(e) => onChangeStartTime(e)} />
                         </div>
-                        <div className="time-select">
+                        {/* <div className="time-select">
                             <input className="time-range" type="range" min="0" max="120" step="1" value={duration} onChange={(e) => onChangeDuration(e)} />
                             <span className="value-time-range">{duration} minutes</span>
+                        </div> */}
+                        <div className="time-picker">
+                            <input
+                                className="timepk-select"
+                                type="time" id="appt"
+                                name="appt" value={endTime}
+                                onChange={(e) => onChangeEndTime(e)} />
                         </div>
 
                         <div className="file-side exam-question">
-                            <button className="btn-select-file btn-select-question" onClick={handleClick1}>Choose a file</button>
-                            <input type='file' name="file_question" style={{ display: 'none' }} ref={inputFileRef1} onChange={(e) => onChangeFile1(e)} />
+                            <button className="btn-select-file btn-select-question" onClick={handleClickExam}>Choose a file</button>
+                            <input type='file' name="file_question" style={{ display: 'none' }} ref={inputFileExamRef} onChange={(e) => onChangeFileExam(e)} />
                             <div className="btn-sample-file btn-sample-question"></div>
-                            <div className="fileName"> <span >File:  {file1.name}</span> </div>
+                            <div className="fileName"> <span >File:  {fileExam.name}</span> </div>
                         </div>
                         <div className="file-side list-answer">
-                            <button className="btn-select-file btn-select-answer" onClick={handleClick2}>Choose a file</button>
-                            <input type='file' name="file_answer" style={{ display: 'none' }} ref={inputFileRef2} onChange={(e) => onChangeFile2(e)} />
+                            <button className="btn-select-file btn-select-answer" onClick={handleClickAnswer}>Choose a file</button>
+                            <input type='file' name="file_answer" style={{ display: 'none' }} ref={inputFileAnswerRef} onChange={(e) => onChangeFileAnswer(e)} />
                             <button className="btn-sample-file btn-sample-answer">Sample file</button>
-                            <div className="fileName"> <span >File:  {file2.name}</span> </div>
+                            <div className="fileName"> <span >File:  {fileAnswer.name}</span> </div>
 
                         </div>
                         <div className="file-side list-student">
-                            <button className="btn-select-file btn-select-student" onClick={handleClick3}>Choose a file</button>
-                            <input type='file' name="file_students" style={{ display: 'none' }} ref={inputFileRef3} onChange={(e) => onChangeFile3(e)} />
+                            <button className="btn-select-file btn-select-student" onClick={handleClickStudent}>Choose a file</button>
+                            <input type='file' name="file_students" style={{ display: 'none' }} ref={inputFileStudentRef} onChange={(e) => onChangeFileStudent(e)} />
                             <button className="btn-sample-file btn-sample-student">Sample file</button>
-                            <div className="fileName"> <span >File: {file3.name}</span> </div>
+                            <div className="fileName"> <span >File: {fileStudent.name}</span> </div>
                         </div>
 
                     </div>
                 </div>
                 <div className="btn-group">
-                    <button className="btn-create btn">Create</button>
-                    <button className="btn-cancel btn">Cancel</button>
+                    <button className="btn-create btn" onClick={(e) => handlePost(e)}>Create</button>
+                    <button className="btn-cancel btn" onClick={(e) => handleCancel(e)}>Cancel</button>
                 </div>
                 {/* <input type="file" onChange={(e) => onChangeFile(e)}/> */}
             </div>

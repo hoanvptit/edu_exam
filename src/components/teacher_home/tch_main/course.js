@@ -15,6 +15,7 @@ function Course(props) {
     const [menuState, setMenuState] = useState(false);
     const room = props.room;
     const start = new Date(room.start);
+    console.log("room time: ", room.start);
     const end = new Date(room.end);
     const startTime =  `${start.getHours()}:${start.getMinutes()}`;
     const endTime =  `${end.getHours()}:${end.getMinutes()}`;
